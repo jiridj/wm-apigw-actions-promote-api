@@ -14,18 +14,20 @@ let logger;
 async function promoteApi(apiName, apiVersion, stageName) {
     // Get the stage details
     const stage = await sdk.findStage(stageName);
-    
+    logger.debug(`Stage has ID ${stage.id}`);
     
     // Get the API version to promote
     const versions = await sdk.findApiByNameAndVersion(apiName, apiVersion);
     const api = versions[0];
-    
+    logger.debug(`API has ID ${api.id}`);
+
     // Promote the api
-    await sdk.promoteApi(
+    const promotion = await sdk.promoteApi(
         `${apiName} : ${apiVersion} -> ${stageName}`,
         api.id,
         stage.id
     );
+    logger.debug(`Promotion with name ${promotion.name} created`);
 }
 
 /**
@@ -66,11 +68,11 @@ async function promoteApi(apiName, apiVersion, stageName) {
             core.getInput('apigw-password')
         );
 
-        promoteApi(
-            core.getInput('api-name'),
-            core.getInput('api-version'),
-            core.getInput('stage-name')
-        );
+        const apiName = core.getInput('api-name');
+        const apiVersion = core.getInput('api-version');
+        const stageName = core.getInput('stage-name');
+        logger.debug(`Promoting version ${apiVersion} of API ${apiName} to stage ${stageName}`);
+        await promoteApi(apiName, apiVersion, stageName);
     }
     catch(error) {
         logger.error(error);

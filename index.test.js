@@ -11,10 +11,14 @@ const stage = JSON.parse(fs.readFileSync('resources/stage-details.json'));
 
 describe('test promoteApi', () => {
 
+    beforeAll(() => {
+        index.setupLogger(false);
+    });
+
     it('should succeed', async () => {
         mockedSdk.findStage.mockResolvedValueOnce(stage);
         mockedSdk.findApiByNameAndVersion.mockResolvedValueOnce([ api ]);
-        mockedSdk.promoteApi.mockResolvedValueOnce({});
+        mockedSdk.promoteApi.mockResolvedValueOnce({ name: `${api.apiName} : ${api.apiVersion} -> ${stage.name}` });
 
         await index.promoteApi(
             api.apiName,
@@ -72,7 +76,7 @@ describe('test run', () => {
 
         mockedSdk.findStage.mockResolvedValueOnce(stage);
         mockedSdk.findApiByNameAndVersion.mockResolvedValueOnce([ api ]);
-        mockedSdk.promoteApi.mockResolvedValueOnce({});
+        mockedSdk.promoteApi.mockResolvedValueOnce({ name: `${api.apiName} : ${api.apiVersion} -> ${stage.name}` });
 
         await index.run();
     });
