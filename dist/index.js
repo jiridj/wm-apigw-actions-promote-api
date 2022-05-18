@@ -26,6 +26,7 @@ async function promoteApi(apiName, apiVersion, stageName) {
     const versions = await sdk.findApiByNameAndVersion(apiName, apiVersion);
     const api = versions[0];
     logger.debug(`API has ID ${api.id}`);
+    logger.debug(JSON.stringify(api));
 
     // Promote the api
     const promotion = await sdk.promoteApi(
