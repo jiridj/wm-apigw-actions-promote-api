@@ -17,7 +17,7 @@ describe('test promoteApi', () => {
 
     it('should succeed', async () => {
         mockedSdk.findStage.mockResolvedValueOnce(stage);
-        mockedSdk.findApiByNameAndVersion.mockResolvedValueOnce([{ "api": api }]);
+        mockedSdk.findApiByNameAndVersion.mockResolvedValueOnce([{ 'api': api }]);
         mockedSdk.promoteApi.mockResolvedValueOnce({ name: `${api.apiName} : ${api.apiVersion} -> ${stage.name}` });
 
         await index.promoteApi(
@@ -75,7 +75,7 @@ describe('test run', () => {
         process.env['INPUT_DEBUG'] = true;
 
         mockedSdk.findStage.mockResolvedValueOnce(stage);
-        mockedSdk.findApiByNameAndVersion.mockResolvedValueOnce([{ "api": api }]);
+        mockedSdk.findApiByNameAndVersion.mockResolvedValueOnce([{ 'api': api }]);
         mockedSdk.promoteApi.mockResolvedValueOnce({ name: `${api.apiName} : ${api.apiVersion} -> ${stage.name}` });
 
         await index.run();
