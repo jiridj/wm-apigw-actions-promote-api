@@ -1,4 +1,4 @@
-name: Update SemVer
+name: semver
 
 on:
   release:
