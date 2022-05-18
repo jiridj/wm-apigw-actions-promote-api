@@ -1,6 +1,6 @@
 {
   "name": "wm-apigw-actions-promote-api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Promotes an API in wM API Gateway",
   "main": "index.js",
   "scripts": {
