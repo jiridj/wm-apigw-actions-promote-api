@@ -4,7 +4,6 @@
 ![coverage](https://img.shields.io/codecov/c/gh/jiridj/wm-apigw-actions-promote-api?token=35GE4E56NO)
 ![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/jiridj/wm-apigw-actions-promote-api)
 [![open issues](https://img.shields.io/github/issues-raw/jiridj/wm-apigw-actions-promote-api)](https://github.com/jiridj/wm-apigw-actions-promote-api/issues)
-![action users](https://img.shields.io/endpoint?url=https://jiridj.github.io/wm-apigw-actions-promote-api/wm-apigw-actions-promote-api.json)
 
 With this action you can promote an API to a pre-defined stage in webMethods API Gateway. If you feel a particular feature is missing, or if you have found a bug, feel free to submit a pull request! :wink:
 
